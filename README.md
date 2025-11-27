@@ -72,6 +72,29 @@
 ![投稿削除1](https://github.com/kuroda-tech/Twitter_public/blob/main/twitter_public/images/posts/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-26%2022.43.29.png?raw=true)
 ![投稿削除2](https://github.com/kuroda-tech/Twitter_public/blob/main/twitter_public/images/posts/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-26%2022.43.51.png?raw=true)
 
+## ディレクトリ構成
+twitter_public/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com.example.twitter/
+│   │   │        ├── controller/      # 画面遷移・リクエスト処理
+│   │   │        ├── service/         # ビジネスロジック
+│   │   │        ├── repository/      # DBアクセス（JPA）
+│   │   │        └── entity/          # エンティティ（User / Post）
+│   │   └── resources/
+│   │        ├── templates/           # Thymeleafテンプレート
+│   │        ├── static/              # CSS / 画像など
+│   │        └── application.properties
+│   └── test/
+│        └── java/                     # テストコード（今後追加予定）
+│
+├── pom.xml
+└── images/
+     ├── login/
+     ├── signup/
+     └── posts/
+
 
 ## 学んだこと・工夫点
 
@@ -84,7 +107,12 @@ Mavenプロジェクト管理やGitHubへの公開手順を習得
 ---
 
 ## 今後の改善点や課題
-フロントデザインの改善（レスポンシブ対応など）  
-投稿検索機能や「いいね」機能の追加  
+フロントデザインの改善（レスポンシブ対応など）
+投稿検索機能や「いいね」機能の追加
 単体テスト・統合テストの充実
-
+Spring Security の設定見直し
+ログイン後のリダイレクトがループする問題や、認証済みページへのアクセス制御でつまずいた
+現在は正しく動作するが、より読みやすい設定や責務分割を検討したい
+メール認証のトークン処理の改善
+token パラメータが受け取れず 400 エラーが発生した
+原因調査の過程で、リンク生成ロジック・コントローラ設計・ログ確認の重要性を理解
